@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>v-text与v-html</title>
+		<script src="js/vuejs-2.5.16.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<div id="div1"></div>
+			<div id="div2"></div>
+
+			<div v-text="message"></div>
+			<div v-html="message"></div>
+		</div>
+	</body>
+	<script>
+		//view model
+		new Vue({
+			el:"#app",
+			data:{
+				message:"<h1>Hello Vue</h1>"
+			}
+		});
+
+
+
+
+		//传统js的innerText和innerHtml
+		window.onload =function () {
+			document.getElementById("div1").innerHTML="<h1>Hello</h1>";
+			document.getElementById("div2").innerText="<h1>Hello</h1>";
+		}
+		//innerHtml会解析HTML 而 innertext不会解析HTML
+		//V-HTML   和  v-text   解析方式一样
+	</script>
+</html>
